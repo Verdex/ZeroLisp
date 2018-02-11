@@ -6,21 +6,23 @@ namespace ZeroLisp.Data
         {
             return new Some<T>(item);
         }
-        public static IOption<T> None<T>()
+        public static IOption<T> None<T>(string details = "")
         {
-            return new None<T>();
+            return new None<T>(details);
         }
     }
     public interface IOption<T>
     {
         T Item { get; }
         bool HasItem { get; }
+        string Details { get; }
     }
 
     public class Some<T> : IOption<T>
     {
         public T Item { get; }
         public bool HasItem { get; } = true;
+        public string Details { get; } = "";
         public Some(T item)
         {
             Item = item;
@@ -31,8 +33,10 @@ namespace ZeroLisp.Data
     {
         public T Item { get; }
         public bool HasItem { get; } = false;
-        public None()
+        public string Details { get; }
+        public None(string details)
         {
+            Details = details;
         }
     }
 }
