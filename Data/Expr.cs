@@ -1,8 +1,12 @@
 
 namespace ZeroLisp.Data
 {
-    public class Sexpr
+    public class Number : Expr
     {
-        
+        public int Value { get; set; }
+    }
+
+    public class Expr
+    {
     }
 }
