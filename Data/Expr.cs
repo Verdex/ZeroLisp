@@ -6,7 +6,7 @@ namespace ZeroLisp.Data
         public int Value { get; set; }
     }
 
-    public class Expr
+    public interface Expr
     {
     }
 }
