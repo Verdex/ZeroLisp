@@ -6,6 +6,23 @@ namespace ZeroLisp.Data
     public class Symbol : Expr
     {
         public string Name { get; }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
+        }
+
+        public override bool Equals(object o)
+        {
+            if( o is Symbol s )
+            {
+                return s.Name == Name;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
     public class Number : Expr
